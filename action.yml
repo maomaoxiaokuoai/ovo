@@ -74,8 +74,8 @@ runs:
         mkdir android-kernel
         df -h android-kernel
         cd android-kernel
-        repo init --depth=1 --u https://android.googlesource.com/kernel/manifest -b common-${{ inputs.tag }} --repo-rev=v2.16
-        REMOTE_BRANCH=$(git ls-remote https://android.googlesource.com/kernel/common ${{ inputs.tag }})
+        repo init --depth=1 --u https://android.googlesource.com/kernel/manifest -b common-${{ inputs.simple-tag }} --repo-rev=v2.16
+        REMOTE_BRANCH=$(git ls-remote https://android.googlesource.com/kernel/common android15-6.6)
         if grep -q deprecated <<< $REMOTE_BRANCH; then
           echo "Warning: Found deprecated branch: ${{ inputs.tag }}"
         fi
