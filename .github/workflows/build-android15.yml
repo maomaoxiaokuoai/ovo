@@ -37,15 +37,6 @@ jobs:
         uses: actions/checkout@v4
 
 
-      - name: Patch missing ABI files
-        shell: bash
-        run: |
-          cd android-kernel
-          mkdir -p common/android
-          # 占位受保护导出文件（空 KMI 列表=模块构建不需要这些符号）
-          touch common/android/abi_gki_protected_exports_aarch64
-          echo "patched abi files"
-
       - name: Run GKI Kernel Build Action
 
       - name: Run GKI Kernel Build Action
