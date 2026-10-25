@@ -18,7 +18,7 @@ jobs:
         include:
           - version: 6.6.57
             tag: android15-6.6
-            patch-level: 2025-05
+            patch-level: 2025-10
             arch: aarch64
           
     steps:
