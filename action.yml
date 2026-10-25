@@ -90,6 +90,13 @@ runs:
         key: gki-kernel-${{ inputs.tag }}-cache
         max-size: 2G
 
+    - name: Patch Missing ABI Files
+      shell: bash
+      run: |
+        if [ ! -f android-kernel/common/android/abi_gki_protected_exports_aarch64 ]; then
+          touch android-kernel/common/android/abi_gki_protected_exports_aarch64
+          echo "patched abi file"
+        fi
     - name: Setup Kernel Module
       shell: bash
       run: |
